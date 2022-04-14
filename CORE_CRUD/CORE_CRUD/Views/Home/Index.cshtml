@@ -1,0 +1,28 @@
+﻿@model List<CORE_CRUD.Models.EMPModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Mobile</td>
+        <td>Password</td>
+        <td>EDIT</td>
+        <td>DELETE</td>
+    </tr>
+    @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.Mobile</td>
+                    <td>@item.Password</td>
+                    <td><a href="@Url.Action("Edit","Home",new {item.Id})"class="btn btn-success">EDIT</a></td>
+                    <td><a href="@Url.Action("Delete","Home",new {item.Id})" class="btn btn-danger">DELETE</a></td>
+                </tr>
+            }
+</table>
